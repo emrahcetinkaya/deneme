@@ -1,0 +1,28 @@
+<div class="container-fluid" style="background-color:F8F8F8">
+  <div class="row" style="background-color:#F8F8F8">
+    <div class="col-sm-3" style="background-color:#F8F8F8;"></div>
+    <div class="col-sm-6" style="background-color:lavenderblush; height:900px;border: 2px solid black; border-radius: 8px">
+        <nav class="navbar navbar-default" style="margin: 0px; border: 2px solid black; border-radius: 8px;">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/posts">Emrah ÇETİNKAYA</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="/posts">Home Page</a></li>
+              <li><a href='/cv/myCv'> My CV  </a> </li>
+            </ul>
+          </div>
+        </nav>
+        <div style="margin:50px">   
+        
+        <%= render 'form' %>
+
+        <%= link_to 'Back', posts_path %>
+        
+        </div>
+        
+        
+    </div>
+    <div class="col-sm-3" style="background-color:#F8F8F8;"></div>
+  </div>
+</div>

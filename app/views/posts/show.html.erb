@@ -1,0 +1,55 @@
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<div class="row" style= "background-color:#F8F8F8;">
+    <div class="col-sm-2" style="background-color:#F8F8F8;"></div>
+    <div class="col-sm-8" style="background-color:lavenderblush; height:auto;border: 2px solid black; border-radius: 8px;">
+      <nav class="navbar navbar-default" style="margin: 0px; border: 2px solid black; border-radius: 8px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/posts">Emrah ÇETİNKAYA</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/posts">Home Page</a></li>
+            <li><a href='/cv/myCv'> My CV  </a> </li>
+          </ul>
+        </div>
+      </nav>
+      <div style="background-color:#F8F8F8;border: 2px solid black; border-radius: 8px; margin:10px">
+        <div style= "margin:10px">
+          <h3> <%= @post.title %> </h3>
+          <%= image_tag @post.image.url(:medium) %>   
+          <p style="margin:10px;">
+          <%= link_to "Back", posts_path %>
+          <%= link_to "Edit", edit_post_path(@post) %>
+          <%= link_to "Delete", @post, :method => :delete, :confirm => "Are you sure?" %>
+          </p>
+          
+          <br>
+          <p ><%= @post.text %> </p>
+        </div>
+      </div>
+      <br>
+      <h3 style="margin:10px">Comments</h3>
+      <div style="background-color:#F8F8F8;border: 2px solid black; border-radius: 8px; margin:10px">
+        <div style="margin:10px">
+          <%=@post.comments.each do |comment| %>
+          <p> <b><%= comment.id %>. </b> <%= comment.text %> ( <%= time_ago_in_words comment.created_at %> ago )</p> 
+          <p> <%= link_to "Delete Comment",[@post, comment], :method => :delete, :confirm => "Are you sure?" %> </p>
+          <% end%>  
+          
+        </div>
+        
+      </div>
+      
+      <div style="margin:10px">
+        <%= form_for [@post, @post.comments.build] do |f| %>
+        <p> <%=f.text_area :text,:size =>'55x7' %></p>
+        <p> <%= f.submit "Post comment"%> </p>
+        <%end%>
+      </div>
+        
+    </div>
+    <div class="col-sm-2" style="background-color:#F8F8F8;"></div>
+</div>
