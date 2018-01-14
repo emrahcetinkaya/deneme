@@ -1,4 +1,4 @@
-<div style="background-color:#52e5a3">
+<div style="background-color:#7E8F7C">
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2" style=" height: 400px;"> </div>
@@ -28,6 +28,20 @@
         </div>
         <% end %>
         <p style="margin-left:20px; text-color:red"> <%=link_to "New Post", new_post_path  %> </p>
+        <br><br>
+        
+        
+        
+        <div style="word-wrap:break-word; background-color:#828a99; border: 2px solid black; border-radius: 8px; height:auto;">
+          <center>
+            <h3 style="border-bottom: 6px solid red; background-color: lightgrey">Rails Environment Variables</h3>
+          </center>
+          <center>
+            <% request.env.each do |key,value|%>
+            <strong><%=key%></strong> => <%=value%> <br>
+            <%end%>
+          </center>
+        </div>
       
     </div>
     <div class="col-sm-2" style=" height: 400px;"></div>
